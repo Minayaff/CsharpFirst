@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Evaluation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectId" Type="Int32" />
+    <Property Name="BeforeExam" Type="Int32" />
+    <Property Name="AfterExam" Type="Int32" />
+    <Property Name="StudentID" Type="Int32" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__Evaluatio__Subje__49C3F6B7" FromRole="Evaluation" ToRole="Subjects" />
+    <NavigationProperty Name="Student" Relationship="UniProjeModel.FK__Evaluatio__Stude__4AB81AF0" FromRole="Evaluation" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectID" Type="Int32" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="Point" Type="Int32" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__Grade__SubjectID__45F365D3" FromRole="Grade" ToRole="Subjects" />
+    <NavigationProperty Name="Student" Relationship="UniProjeModel.FK__Grade__StudentID__46E78A0C" FromRole="Grade" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TSGs" Relationship="Self.FK__TSG__GroupId__4222D4EF" FromRole="Groups" ToRole="TSG" />
+    <NavigationProperty Name="Students" Relationship="UniProjeModel.FK__Students__GroupI__3B75D760" FromRole="Group" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainQuest" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AnswerA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AnswerB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AnswerC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AnswerD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SubjectId" Type="Int32" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__Question__Subjec__4D94879B" FromRole="Question" ToRole="Subjects" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subjname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Evaluations" Relationship="Self.FK__Evaluatio__Subje__49C3F6B7" FromRole="Subjects" ToRole="Evaluation" />
+    <NavigationProperty Name="Grades" Relationship="Self.FK__Grade__SubjectID__45F365D3" FromRole="Subjects" ToRole="Grade" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Question__Subjec__4D94879B" FromRole="Subjects" ToRole="Question" />
+    <NavigationProperty Name="TSGs" Relationship="Self.FK__TSG__SubjectId__4316F928" FromRole="Subjects" ToRole="TSG" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Tname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Tsurname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Tparol" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherIdent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="TSGs" Relationship="Self.FK__TSG__TeacherID__412EB0B6" FromRole="Teachers" ToRole="TSG" />
+  </EntityType>
+  <EntityType Name="TSG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherID" Type="Int32" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="SubjectId" Type="Int32" />
+    <NavigationProperty Name="Group" Relationship="Self.FK__TSG__GroupId__4222D4EF" FromRole="TSG" ToRole="Groups" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK__TSG__SubjectId__4316F928" FromRole="TSG" ToRole="Subjects" />
+    <NavigationProperty Name="Teacher" Relationship="Self.FK__TSG__TeacherID__412EB0B6" FromRole="TSG" ToRole="Teachers" />
+  </EntityType>
+  <Association Name="FK__Evaluatio__Subje__49C3F6B7">
+    <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grade__SubjectID__45F365D3">
+    <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Grade" Type="Self.Grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TSG__GroupId__4222D4EF">
+    <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+    <End Role="TSG" Type="Self.TSG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TSG">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Question__Subjec__4D94879B">
+    <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TSG__SubjectId__4316F928">
+    <End Role="Subjects" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="TSG" Type="Self.TSG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TSG">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TSG__TeacherID__412EB0B6">
+    <End Role="Teachers" Type="Self.Teacher" Multiplicity="0..1" />
+    <End Role="TSG" Type="Self.TSG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TSG">
+        <PropertyRef Name="TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UniProjeEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Evaluations" EntityType="Self.Evaluation" />
+    <EntitySet Name="Grades" EntityType="Self.Grade" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="Subjects" EntityType="Self.Subject" />
+    <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+    <EntitySet Name="TSGs" EntityType="Self.TSG" />
+    <AssociationSet Name="FK__Evaluatio__Subje__49C3F6B7" Association="Self.FK__Evaluatio__Subje__49C3F6B7">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Evaluation" EntitySet="Evaluations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grade__SubjectID__45F365D3" Association="Self.FK__Grade__SubjectID__45F365D3">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Grade" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TSG__GroupId__4222D4EF" Association="Self.FK__TSG__GroupId__4222D4EF">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="TSG" EntitySet="TSGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Question__Subjec__4D94879B" Association="Self.FK__Question__Subjec__4D94879B">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TSG__SubjectId__4316F928" Association="Self.FK__TSG__SubjectId__4316F928">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="TSG" EntitySet="TSGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TSG__TeacherID__412EB0B6" Association="Self.FK__TSG__TeacherID__412EB0B6">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="TSG" EntitySet="TSGs" />
+    </AssociationSet>
+    <EntitySet Name="Students" EntityType="UniProjeModel.Student" />
+    <AssociationSet Name="FK__Evaluatio__Stude__4AB81AF0" Association="UniProjeModel.FK__Evaluatio__Stude__4AB81AF0">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Evaluation" EntitySet="Evaluations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grade__StudentID__46E78A0C" Association="UniProjeModel.FK__Grade__StudentID__46E78A0C">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Grade" EntitySet="Grades" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__GroupI__3B75D760" Association="UniProjeModel.FK__Students__GroupI__3B75D760">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Sname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Ssurname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sparol" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="StudentIdent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Evaluations" Relationship="UniProjeModel.FK__Evaluatio__Stude__4AB81AF0" FromRole="Student" ToRole="Evaluation" />
+    <NavigationProperty Name="Grades" Relationship="UniProjeModel.FK__Grade__StudentID__46E78A0C" FromRole="Student" ToRole="Grade" />
+    <NavigationProperty Name="Group" Relationship="UniProjeModel.FK__Students__GroupI__3B75D760" FromRole="Student" ToRole="Group" />
+  </EntityType>
+  <Association Name="FK__Evaluatio__Stude__4AB81AF0">
+    <End Type="UniProjeModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="UniProjeModel.Evaluation" Role="Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grade__StudentID__46E78A0C">
+    <End Type="UniProjeModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="UniProjeModel.Grade" Role="Grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__GroupI__3B75D760">
+    <End Type="UniProjeModel.Group" Role="Group" Multiplicity="0..1" />
+    <End Type="UniProjeModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

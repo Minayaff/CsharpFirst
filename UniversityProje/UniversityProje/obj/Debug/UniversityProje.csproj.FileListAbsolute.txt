@@ -1,0 +1,36 @@
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\bin\Debug\UniversityProje.exe.config
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\bin\Debug\UniversityProje.exe
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\bin\Debug\UniversityProje.pdb
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.Form1.resources
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.Properties.Resources.resources
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.csproj.GenerateResource.cache
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.csproj.CoreCompileInputs.cache
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.exe
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.pdb
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\bin\Debug\EntityFramework.dll
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\bin\Debug\EntityFramework.xml
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.AdminForm.resources
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.csproj.CopyComplete
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.csprojAssemblyReference.cache
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.TeacherForm.resources
+C:\Users\Mina Farzali\Desktop\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.StudentFormm.resources
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\bin\Debug\UniversityProje.exe.config
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\bin\Debug\UniversityProje.exe
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\bin\Debug\UniversityProje.pdb
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\bin\Debug\EntityFramework.dll
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\bin\Debug\EntityFramework.xml
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.csprojAssemblyReference.cache
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.AdminForm.resources
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.Form1.resources
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.Properties.Resources.resources
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.StudentFormm.resources
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.TeacherForm.resources
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.csproj.GenerateResource.cache
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.csproj.CoreCompileInputs.cache
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.csproj.CopyComplete
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.exe
+C:\Users\Mina Farzali\Desktop\all desktop\tapsiriqlar\C#Proje\UniversityProje\UniversityProje\obj\Debug\UniversityProje.pdb

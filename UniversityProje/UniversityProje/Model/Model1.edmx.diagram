@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da5f9f62cc8144bb91a1ba4bf29ec084" Name="Diagram1">
+        <EntityTypeShape EntityType="CsharpProjeModel.Evaluation" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsharpProjeModel.Group" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsharpProjeModel.Question" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsharpProjeModel.Student" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsharpProjeModel.Subject" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsharpProjeModel.Teacher" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsharpProjeModel.TSG" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="CsharpProjeModel.FK__Evaluatio__Stude__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="CsharpProjeModel.FK__Evaluatio__Subje__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="CsharpProjeModel.FK__Students__GroupI__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="CsharpProjeModel.FK__TSG__GroupId__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="CsharpProjeModel.FK__Question__Subjec__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="CsharpProjeModel.FK__TSG__SubjectId__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="CsharpProjeModel.FK__TSG__TeacherID__01142BA1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CsharpProjeModel.Grade" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="CsharpProjeModel.Point" Width="1.5" PointX="0.75" PointY="11.75" />
+        <AssociationConnector Association="CsharpProjeModel.FK__Grade__Point__208CD6FA" />
+        <AssociationConnector Association="CsharpProjeModel.FK__Grade__StudentID__1F98B2C1" />
+        <AssociationConnector Association="CsharpProjeModel.FK__Grade__SubjectID__1EA48E88" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

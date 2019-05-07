@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CsharpProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Evaluation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubjectId" Type="int" />
+    <Property Name="BeforeExam" Type="int" />
+    <Property Name="AfterExam" Type="int" />
+    <Property Name="StudentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubjectID" Type="int" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="Point" Type="int" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gname" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PointRes" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MainQuest" Type="nvarchar" MaxLength="200" />
+    <Property Name="AnswerA" Type="nvarchar" MaxLength="100" />
+    <Property Name="AnswerB" Type="nvarchar" MaxLength="100" />
+    <Property Name="AnswerC" Type="nvarchar" MaxLength="100" />
+    <Property Name="AnswerD" Type="nvarchar" MaxLength="100" />
+    <Property Name="SubjectId" Type="int" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sname" Type="nvarchar" MaxLength="200" />
+    <Property Name="Ssurname" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sparol" Type="nvarchar" MaxLength="100" />
+    <Property Name="GroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subjname" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tname" Type="nvarchar" MaxLength="200" />
+    <Property Name="Tsurname" Type="nvarchar" MaxLength="200" />
+    <Property Name="Tparol" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TSG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherID" Type="int" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="SubjectId" Type="int" />
+  </EntityType>
+  <Association Name="FK__Evaluatio__Stude__0A9D95DB">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Evaluatio__Subje__09A971A2">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grade__Point__208CD6FA">
+    <End Role="Point" Type="Self.Point" Multiplicity="0..1" />
+    <End Role="Grade" Type="Self.Grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="Point" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grade__StudentID__1F98B2C1">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Grade" Type="Self.Grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grade__SubjectID__1EA48E88">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="Grade" Type="Self.Grade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Grade">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Question__Subjec__0D7A0286">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__GroupI__7C4F7684">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TSG__GroupId__02084FDA">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="TSG" Type="Self.TSG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TSG">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TSG__SubjectId__02FC7413">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="TSG" Type="Self.TSG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TSG">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TSG__TeacherID__01142BA1">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+    <End Role="TSG" Type="Self.TSG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TSG">
+        <PropertyRef Name="TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CsharpProjeModelStoreContainer">
+    <EntitySet Name="Evaluation" EntityType="Self.Evaluation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grade" EntityType="Self.Grade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Point" EntityType="Self.Point" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TSG" EntityType="Self.TSG" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Evaluatio__Stude__0A9D95DB" Association="Self.FK__Evaluatio__Stude__0A9D95DB">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Evaluation" EntitySet="Evaluation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Evaluatio__Subje__09A971A2" Association="Self.FK__Evaluatio__Subje__09A971A2">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Evaluation" EntitySet="Evaluation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grade__Point__208CD6FA" Association="Self.FK__Grade__Point__208CD6FA">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="Grade" EntitySet="Grade" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grade__StudentID__1F98B2C1" Association="Self.FK__Grade__StudentID__1F98B2C1">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Grade" EntitySet="Grade" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grade__SubjectID__1EA48E88" Association="Self.FK__Grade__SubjectID__1EA48E88">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Grade" EntitySet="Grade" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Question__Subjec__0D7A0286" Association="Self.FK__Question__Subjec__0D7A0286">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__GroupI__7C4F7684" Association="Self.FK__Students__GroupI__7C4F7684">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TSG__GroupId__02084FDA" Association="Self.FK__TSG__GroupId__02084FDA">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="TSG" EntitySet="TSG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TSG__SubjectId__02FC7413" Association="Self.FK__TSG__SubjectId__02FC7413">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="TSG" EntitySet="TSG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TSG__TeacherID__01142BA1" Association="Self.FK__TSG__TeacherID__01142BA1">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="TSG" EntitySet="TSG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
